@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Test code</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link href="lib/styles.css"        rel="stylesheet">
+
+
+     <!-- Angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script src="lib/ang-fns.js"></script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="MainCtrl">
+
+    <br /><br />
+
+    <div class="container">
+        <h2>Users</h2>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Permisson</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-cloak ng-repeat="user in users">
+                <th>{{ $index + 1}}</th>
+                <td>{{ user.name }}</td>
+                <td>{{ user.perm }}</td>
+                <td>
+                   <button ng-click="PrepareWindow($index)" class="btn btn-warning">Edit</button>&nbsp;
+                   <button ng-click="Del($index)" class="btn btn-danger">Del</button>
+                 </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2017</p>
+      </footer>
+    </div> <!-- /container -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ modal_title }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="edit_form">
+              <div class="form-group">
+                <label for="formGroupExampleInput">Name</label>
+                <input name="name"  type="text" class="form-control" ng-model="name">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Permisson</label>
+                <!-- <input name="perm" type="text" class="form-control" ng-model="perm"> -->
+                <select ng-model="selectedPerm" ng-options="x.name for x in roles">
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" ng-class="hide_upd" class="btn btn-primary" data-dismiss="modal" ng-click="Update()">Save changes</button>
+            <button type="button" ng-class="hide_add" class="btn btn-primary" data-dismiss="modal" ng-click="Add()">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAB -->
+    <button class="btn btn-success fab" ng-click="PrepareWindow()"><i class="fas fa-plus"></i></button>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+       // when opens modal focus on input
+       $('#exampleModal').on('shown.bs.modal', function () {
+           $('#edit_form input[name=name]').trigger('focus')
+         })
+    </script>
+
+
+
+  </body>
+</html>

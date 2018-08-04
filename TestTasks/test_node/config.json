@@ -1,0 +1,27 @@
+{
+   "description": "Here you can define your settings for app and call it like - global.config['name'] ",
+
+   "jobs": false,
+   "sockets": false,
+   "reload": false, 
+
+   "databases": {
+       "mysql": {
+          "enabled": false, 
+          "host": "localhost",
+          "user": "root",
+          "password": "",
+          "database": "test"
+        },
+
+        "sqlite": {
+          "enabled": false,
+          "db_adress": "./db.sqlite"
+        },
+        
+        "mongodb": {
+          "enabled": true,
+          "db_adress": "mongodb://localhost:27017/mydb"
+        } 
+   }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bullz</title>
+
+    <!-- CSS -->
+    {% include "partials/css.njk" %}
+
+     <style media="screen">
+          section.hero{
+            background-image: -webkit-linear-gradient(45deg, #00a8c5, #ffff7e);
+            background-image: linear-gradient(45deg, #00a8c5, #ffff7e);
+          }
+     </style>
+
+  </head>
+  <body>
+
+
+    <section class="hero" >
+      <div class="hero-body"  style="padding:0px;">
+        <div class="container">
+          <h2 class="title is-2 has-text-centered">
+             <img width="200" src="/assets/bull-silhouette.svg" />{{ greeting }}
+          </h2>
+          <h3 class="title is-5 has-text-centered">
+            {{ words }}
+          </h3><br />
+
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><br />
+      <form method="POST" action="/form">
+            <div class="field">
+              <label class="label">Test POST form (Body-parser)</label>
+              <div class="control">
+                <input class="input" name="test_field" type="text" placeholder="Enter text">
+              </div>
+              <p class="help">Enter some words and see in console data from this form</p>
+            </div>
+         <input class="button" type="submit" value="Submit form">
+      </form>
+
+      <br /><br />
+
+      <div class="field">
+        <label class="label">Test Sockets </label>
+        <div class="control">
+          <input id="socket_field" class="input" type="text" placeholder="Type 'hello'">
+        </div>
+        <p class="help">Type "hello" and receive answer from sockets</p>
+      </div>
+
+       <button onclick="SendToSockets();" class="button is-light">Send &nbsp;<i class="ion-paper-airplane"></i></button>
+    </div>
+
+
+    <!-- JS -->
+    {% include "partials/js.njk" %}
+
+
+  </body>
+</html>
