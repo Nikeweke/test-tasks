@@ -1,0 +1,9 @@
+ii  php-cli                                     1:7.0+35ubuntu6.1                            all          command-line interpreter for the PHP scripting language (default)
+ii  php-common                                  1:35ubuntu6.1                                all          Common files for PHP packages
+ii  php-mbstring                                1:7.0+35ubuntu6.1                            all          MBSTRING module for PHP [default]
+ii  php7.0-cli                                  7.0.28-0ubuntu0.16.04.1                      amd64        command-line interpreter for the PHP scripting language
+ii  php7.0-common                               7.0.28-0ubuntu0.16.04.1                      amd64        documentation, examples and common module for PHP
+ii  php7.0-json                                 7.0.28-0ubuntu0.16.04.1                      amd64        JSON module for PHP
+ii  php7.0-mbstring                             7.0.28-0ubuntu0.16.04.1                      amd64        MBSTRING module for PHP
+ii  php7.0-opcache                              7.0.28-0ubuntu0.16.04.1                      amd64        Zend OpCache module for PHP
+ii  php7.0-readline                             7.0.28-0ubuntu0.16.04.1                      amd64        readline module for PHP
