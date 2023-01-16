@@ -23,7 +23,6 @@ export class AppService {
 
   @Cron('* */30 * * * *')
   async handleCron() {
-    console.log('here')
     const uniswapUrl = 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2'
     const options = {
       headers: { "Accept-Encoding": "gzip,deflate,compress" } 
@@ -33,7 +32,6 @@ export class AppService {
     }
 
     try {
-      // make request 
       const data: UniswapResponseDto = await lastValueFrom(
         this.httpService.post(uniswapUrl, JSON.stringify(payload), options).pipe(
           map(res => res.data)
@@ -59,7 +57,6 @@ export class AppService {
 
       const result = await Promise.allSettled(promises)
       console.log(result);
-
 
     } catch(e) {
       console.log('---------------> Error')
